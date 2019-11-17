@@ -11,6 +11,7 @@ import android.widget.Button;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -18,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Executor executor =  Executor.newSingleThreadExecutor();
+        Executor executor = Executor.newSingleThreadExecutor();
 
         BiometricPrompt biometricPrompt = new BiometricPrompt.Builder(this)
                 .setTitle("")
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
                 }).build();
 
 
-        Button autenticate = (Button)findViewById(R.id.autenticate);
+        Button autenticate = (Button) findViewById(R.id.autenticate);
         autenticate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
