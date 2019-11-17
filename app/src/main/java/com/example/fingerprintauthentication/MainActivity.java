@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void run() {
                                 Log.d("aute",executor.toString());
+
                                 Toast.makeText(activity, "Autenticado", Toast.LENGTH_SHORT).show();
                             }
                         });
