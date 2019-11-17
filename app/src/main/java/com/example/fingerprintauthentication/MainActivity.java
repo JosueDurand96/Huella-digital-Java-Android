@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.hardware.biometrics.BiometricManager;
 import android.hardware.biometrics.BiometricPrompt;
 import android.os.Bundle;
+import android.os.CancellationSignal;
 import android.view.View;
 import android.widget.Button;
 
@@ -19,9 +20,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Executor executor = Executor.newSingleThreadExecutor();
+        final Executor executor = Executor.newSingleThreadExecutor();
 
-        BiometricPrompt biometricPrompt = new BiometricPrompt.Builder(this)
+        final BiometricPrompt biometricPrompt = new BiometricPrompt.Builder(this)
                 .setTitle("")
                 .setSubtitle("")
                 .setDescription("")
@@ -37,7 +38,12 @@ public class MainActivity extends AppCompatActivity {
         autenticate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                biometricPrompt.authenticate(new CancellationSignal(), executor, new BiometricPrompt.AuthenticationCallback() {
+                    @Override
+                    public void onAuthenticationSucceeded(BiometricPrompt.AuthenticationResult result) {
+                        super.onAuthenticationSucceeded(result);
+                    }
+                });
             }
         });
     }
