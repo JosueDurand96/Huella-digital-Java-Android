@@ -7,6 +7,7 @@ import android.hardware.biometrics.BiometricManager;
 import android.hardware.biometrics.BiometricPrompt;
 import android.os.Bundle;
 import android.os.CancellationSignal;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -24,9 +25,9 @@ public class MainActivity extends AppCompatActivity {
         final Executor executor = Executors.newSingleThreadExecutor();
 
         final BiometricPrompt biometricPrompt = new BiometricPrompt.Builder(this)
-                .setTitle("Finger print")
-                .setSubtitle("Subtitle")
-                .setDescription("Description")
+                .setTitle("Huella Digital")
+                .setSubtitle("!Cuidado xD!")
+                .setDescription("Por favor registre su huella digital")
                 .setNegativeButton("Cancel", executor, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
                         activity.runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
+                                Log.d("aute",executor.toString());
                                 Toast.makeText(activity, "Autenticado", Toast.LENGTH_SHORT).show();
                             }
                         });
