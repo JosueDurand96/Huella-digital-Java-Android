@@ -2,6 +2,7 @@ package com.example.fingerprintauthentication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.hardware.biometrics.BiometricManager;
 import android.hardware.biometrics.BiometricPrompt;
 import android.os.Bundle;
@@ -18,6 +19,15 @@ public class MainActivity extends AppCompatActivity {
         Executor executor =  Executor.newSingleThreadExecutor();
 
         BiometricPrompt biometricPrompt = new BiometricPrompt.Builder(this)
+                .setTitle("")
+                .setSubtitle("")
+                .setDescription("")
+                .setNegativeButton("", executor, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                }).build();
 
     }
 }
