@@ -6,6 +6,8 @@ import android.content.DialogInterface;
 import android.hardware.biometrics.BiometricManager;
 import android.hardware.biometrics.BiometricPrompt;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -30,6 +32,12 @@ public class MainActivity extends AppCompatActivity {
                 }).build();
 
 
+        Button autenticate = (Button)findViewById(R.id.autenticate);
+        autenticate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+            }
+        });
     }
 }
